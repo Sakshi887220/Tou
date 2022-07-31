@@ -11,32 +11,14 @@ AFRAME.registerComponent("tour", {
   },
   update: function() {
     window.addEventListener("keydown", e => {
-      if (e.key === "ArrowUp") {
-        if (
-          (this.data.zoomAspectRatio <= 10 && this.data.state === "view") ||
-          (this.data.zoomAspectRatio <= 10 && this.data.state === "change-view")
-        ) {
-          this.data.zoomAspectRatio += 0.002;
-          this.cameraEl.setAttribute("zoom", this.data.zoomAspectRatio);
-        }
-      }
-      if (e.key === "ArrowDown") {
-        if (
-          (this.data.zoomAspectRatio > 1 && this.data.state === "view") ||
-          (this.data.zoomAspectRatio > 1 && this.data.state === "change-view")
-        ) {
-          this.data.zoomAspectRatio -= 0.002;
-          this.cameraEl.setAttribute("zoom", this.data.zoomAspectRatio);
-        }
-      }
-    });
+     
+
   },
   tick: function() {
     const { state } = this.el.getAttribute("tour");
 
     if (state === "view") {
-      this.hideEl([this.placesContainer]);
-      this.showView();
+     
     }
   },
   hideEl: function(elList) {
@@ -45,14 +27,7 @@ AFRAME.registerComponent("tour", {
     });
   },
   showView: function() {
-    const { selectedCard } = this.data;
-
-    //Set the 360 degree image to the sky element.
-    const skyEl = document.querySelector("#main-container");
-
-    skyEl.setAttribute("material", {
-      src: `./assets/360_images/${selectedCard}/place-0.jpg`,
-      color: "#fff"
+    
     });
   },
   createCards: function() {
